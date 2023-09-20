@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="navbar navbar-default" style="border-radius:0">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">上海移动xx系统</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav">
+                <li><a href="#">财务管理</a></li>
+                <li><a href="#">人事管理</a></li>
+                <li class="active"><a href="/phone/list">号码管理</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">其他 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">功能1</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">登录</a></li>
+                <li><a href="#">注册</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">武沛齐 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">个人资料</a></li>
+                        <li><a href="#">修改密码</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">注销</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</div>
+
+    <div>
+
+    <div class="container clearfix">
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">新建数据</div>
+                <div class="panel-body">
+                    <form class="form-inline" action="/add/phone" method="get">
+                      <div class="form-group">
+                        <label class="sr-only">手机号</label>
+                        <input type="text" class="form-control" placeholder="手机号" name="mobile">
+                      </div>
+                      <div class="form-group">
+                        <label class="sr-only">归属地</label>
+                        <input type="text" class="form-control" placeholder="归属地" name="city">
+                      </div>
+                      <div class="form-group">
+                        <label class="sr-only">用户</label>
+                        <input type="text" class="form-control" placeholder="用户" name="user">
+                      </div>
+                      <button type="submit" class="btn btn-success">提 交</button>
+                    </form>
+                </div>
+            </div>
+
+
+            <table class="table table-bordered" style="margin-top: 20px;">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>手机号</th>
+                    <th>归属地</th>
+                    <th>姓名</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in data_list %}
+                <tr>
+                    <th>{{row.id}}</th>
+                    <td>{{row.mobile}}</td>
+                    <td>{{row.city}}</td>
+                    <td>{{row.name}}</td>
+                    <td>
+                        <a class="btn btn-danger btn-xs" href="/delete/phone?pid={{row.id}}">删除</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <ul class="pagination">
+                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+            </ul>
+
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span style="color: red;" class="glyphicon glyphicon-flag" aria-hidden="true"></span> 最新评论
+                </div>
+                <div class="panel-body">
+                    <div>adf</div>
+                    <div>adf</div>
+                    <div>adf</div>
+                    <div>adf</div>
+                    <div>adf</div>
+                    <div>adf</div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+    <script src="/static/jquery-3.6.0.min.js"></script>
+    <script src="/static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

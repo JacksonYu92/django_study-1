@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1 {
+            color:red;
+        }
+        span{
+            display: inline-block;
+            width: 80px;
+            text-align:right;
+        }
+        form > div {
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+<h1>用户注册</h1>
+<form action="/do/register" method="get">
+    <div>
+        <span>用户名：</span>
+        <input type="text" placeholder="请输入用户名" name="user"></div>
+    <div>
+        <span>密码：</span>
+        <input type="password" placeholder="请输入密码" name="pwd"></div>
+    <div>
+        <span>性别：</span>
+        男<input type="radio" name="gender" value="男"/>
+        女<input type="radio" name="gender" value="女"/>
+    </div>
+    <div>
+        <span>所在城市：</span>
+        <select name="city">
+            <option value="上海">上海</option>
+            <option value="杭州">杭州</option>
+            <option value="南京">南京</option>
+        </select>
+    </div>
+    <div>
+        <span>爱好：</span>
+        篮球<input type="checkbox" name="hobby" value="1"/>
+        足球<input type="checkbox" name="hobby" value="2"/>
+        乒乓球<input type="checkbox" name="hobby" value="3"/>
+    </div>
+    <div>
+        <span>其他信息：</span>
+        <textarea name="more"></textarea>
+    </div>
+    <div>
+        <input type="submit" value="提交">
+    </div>
+</form>
+</body>
+</html>
